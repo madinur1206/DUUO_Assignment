@@ -1,0 +1,48 @@
+{
+	"info": {
+		"_postman_id": "494756bd-fddd-40bd-8cb0-2a96e4de2f84",
+		"name": "Pokémon API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33756428"
+	},
+	"item": [
+		{
+			"name": "Get Pokemon information",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Base experience is above 150\",function(){",
+							"    var responseExprience= pm.response.json(); // this method parse json resposnse to object variable",
+							"    pm.expect(responseExprience.base_experience).to.be.above(150);//actual test assertions",
+							"",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/{{Pokemon Name}}",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						"{{Pokemon Name}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
